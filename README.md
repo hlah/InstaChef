@@ -13,13 +13,3 @@ https://nodejs.org/en/download/package-manager/#arch-linux
 ### PostgreSQL
 De preferência instale o PostBird, depois arrume o arquivo db.js com seu user, password, host, port, e database.
 Crie uma database chamada InstaChef, e rode uma query com o conteúdo do tables.sql para criar a tabela recipes
-
-## Exemplo de Imagens de Receitas:
-Aqui tem uma list de urls de imagens de receitas para usar como exemplo de criação de receitas de um curso online que eu estou fazendo:
-
-https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png<br>
-https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png<br>
-https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/asinha.png<br>
-https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/lasanha.png<br>
-https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/macarrao.png<br>
-https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/doce.png
