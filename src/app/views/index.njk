@@ -1,0 +1,40 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div class="index">
+        <div class="header">
+            <p class="index_title"> Receitas </p>
+            <form action="/recipes" method="GET" class="filter_form">
+                <a href="/recipes/create" class="purple_btn" id="create_btn"> Criar Receita </a>
+                <input type="text" class="input_filter" name="filter" placeholder="Nome da Receita" value="{{filter}}">
+                <button type="submit" class="purple_btn"> Buscar </button>
+            </form>
+        </div>
+
+        {% if filter %}
+            <p class="search_filter"> Buscando por "{{filter}}"</p>
+        {% endif %}
+        <section class="cards">
+            {% for recipe in recipes %}
+            <div class="card">
+                <div class="card_image">
+                    <img src={{recipe.image}}>
+                </div>
+                <div class="card_content">
+                    <p id="card_title"> {{recipe.title}} </p>
+                    <p id="card_author"> por {{recipe.author}} </p>
+                    <a href="/recipes/{{recipe.id}}"> Visualizar </a>
+                </div>
+            </div>
+            {% endfor %}
+        </section>   
+
+        <div class="pagination"            
+            data-page = {{pagination.page}}
+            data-total = {{pagination.total}}
+            data-filter = {{filter}}>
+        </div>      
+    </div>         
+
+{% endblock %}

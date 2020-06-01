@@ -1,0 +1,19 @@
+{% extends "layout.njk" %}
+
+{% block content %}    
+    <div class="edit">
+        <div class="edit_header">
+            <p class="edit_title"> Editando receita </p>
+            <form method="POST" action="/recipes?_method=DELETE" class="delete_form">
+                <input type="hidden" name="index" value="{{recipe.id}}">
+                <button type="submit" class="delete_btn"> Deletar </button>
+            </form> 
+            <form method="POST" action="/recipes?_method=PUT" class="save_form">
+                <input type="hidden" name="index" value="{{recipe.id}}">
+                <button type="submit" class="save_btn"> Salvar Receita </button>
+                {% include 'fields.njk' %}
+            </form>                        
+            <script src="/scripts/delete_script.js"></script>
+        </div>
+    </div>           
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> InstaChef </title>
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="/styles/style.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="header_content">
+                <h1> InstaChef </h1>
+                <a class="recipes_link" href="/recipes"> Receitas </a>
+                <a class="chefs_link" href="/about"> Sobre </a>             
+            </div>                   
+        </header>
+
+        {% block content %}{% endblock %}
+
+        <script src="/scripts/script_menu.js"></script>
+    </body>
+</html>
