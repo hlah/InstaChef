@@ -5,7 +5,7 @@ Bruno Ramos Toresan (291332)
 Mateus Simon (209411)
 
 ## Execução:
-### npm start
+npm start
 
 ## Requisitos:
 ### NodeJS
@@ -16,6 +16,7 @@ Crie uma database chamada InstaChef, e rode uma query com o conteúdo do tables.
 
 ## Exemplo de Imagens de Receitas:
 Aqui tem uma list de urls de imagens de receitas para usar como exemplo de criação de receitas de um curso online que eu estou fazendo:
+
 https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png
 https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png
 https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/asinha.png
