@@ -56,20 +56,5 @@ function hide_show_preparation_list() {
 }
 
 
-function hide_show_additional_info_text() {
-    hide_show_text.addEventListener('click', function(){
-        if (hide_show_text.innerHTML == "Esconder"){
-            hide_show_text.innerHTML = "Mostrar";
-            additional_info_text.innerHTML = '';
-        }
-        else if (hide_show_text.innerHTML == "Mostrar"){
-            hide_show_text.innerHTML = "Esconder";
-            additional_info_text.innerHTML = original_info_text;
-        }
-    })
-}
-
-
 hide_show_ingredient_list();
 hide_show_preparation_list();
-hide_show_additional_info_text();

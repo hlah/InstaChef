@@ -221,6 +221,7 @@ header a {
     width: 940px;
     height: 280px;
     border-radius: 15px;
+    object-fit: cover;
 }
 
 .recipe h1 {
