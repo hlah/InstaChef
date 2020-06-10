@@ -8,7 +8,7 @@
                 <input type="hidden" name="index" value="{{recipe.id}}">
                 <button type="submit" class="delete_btn"> Deletar </button>
             </form> 
-            <form method="POST" action="/recipes?_method=PUT" class="save_form">
+            <form method="POST" action="/recipes?_method=PUT" class="save_form" enctype="multipart/form-data">
                 <input type="hidden" name="index" value="{{recipe.id}}">
                 <button type="submit" class="save_btn"> Salvar Receita </button>
                 {% include 'fields.njk' %}

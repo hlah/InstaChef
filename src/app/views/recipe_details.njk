@@ -1,19 +1,43 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-    <div class="recipe_details">
+    <div class="recipe">
     
         <div class="recipe_header">
             <p id="recipe_title"> Receita: {{recipe.title}} </p>
-            <a href="/recipes/{{recipe.id}}/share" id="share_btn"> Compartilhar Receita </a>
             <a href="/recipes/{{recipe.id}}/execute" id="exec_btn"> Executar Receita </a>
             <a href="/recipes/{{recipe.id}}/edit" id="edit_btn"> Editar Receita </a>
         </div>
-        <div class="recipe">
-            <img src={{recipe.image}}> 
-            <h1> {{recipe.title}} </h1> 
-            <p> por {{recipe.author}} </p>  
+
+        <div class="gallery">
+            <div class="highlight">
+                {% if not files[0] %}
+                    <img src="http://placehold.it/940x280?text=SEM FOTO">
+                {% else %}
+                    <img src="{{files[0].src}}" alt="{{files[0].name}}" onclick="LightBox.open()">
+                {% endif %}  
+
+                <div class="lightbox-target">
+                    <img src="{{files[0].src}}" alt="{{files[0].name}}">
+                    <a href="#" class="lightbox-close" onclick="LightBox.close()">
+                        <i class="material-icons">close</i>
+                    </a>
+                </div>          
+            </div>
+            <div class="gallery-preview">
+                {% for image in files %}
+                    <img 
+                        src="{{image.src}}" 
+                        alt="{{image.name}}"
+                        {% if loop.index0 == 0 %}
+                        class="active"
+                        {% endif %}
+                        onclick="ImageGallery.setImage(event)"
+                    >
+                {% endfor %}
+            </div>
         </div>
+
         <div class="ingredient">
             <p class="recipe_el_title"> Ingredientes </p>
             <p class="hide_show_button" id="hide_show_ingr">Esconder</p>

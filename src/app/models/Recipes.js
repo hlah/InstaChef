@@ -3,22 +3,20 @@ const db = require('../../config/db');
 
 module.exports = {
 
-    create(data, callback) {
+    create(data) {
 
         const query = `
             INSERT INTO recipes(
-                image,
                 title,
                 author,	
                 ingredients,
                 preparation,
                 created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6)
+            ) VALUES ($1, $2, $3, $4, $5)
             RETURNING id
         `
 
         const values = [
-            data.image,
             data.title,
             data.author,
             data.ingredients,
@@ -26,37 +24,26 @@ module.exports = {
             date(Date.now()).iso,
         ]
         
-        db.query(query, values, function(err, results){
-            if (err) throw `Database error ${err}`;
-            callback();
-        });
+        return db.query(query, values)
 
     },
 
-    find(id, callback) {
-        db.query(`
-            SELECT recipes.*
-            FROM recipes 
-            WHERE recipes.id = $1`, [id], function(err, results){
-            if (err) throw `Database error ${err}`;
-            callback(results.rows[0]);
-        });
+    find(id) {
+        return db.query('SELECT * FROM recipes WHERE id = $1', [id])
     },
 
-    update(data, callback){
+    update(data){
 
         const query = `
         UPDATE recipes SET 
-            image=($1),
-            title=($2),
-            author=($3),	
-            ingredients=($4),
-            preparation=($5)
-        WHERE id = ($6)
+            title=($1),
+            author=($2),	
+            ingredients=($3),
+            preparation=($4)
+        WHERE id = ($5)
         `
 
         const values = [
-            data.image,
             data.title,
             data.author,
             data.ingredients,
@@ -64,17 +51,11 @@ module.exports = {
             data.index
         ]
 
-        db.query(query, values, function(err, results){
-            if (err) throw `Database error ${err}`;
-            callback();            
-        });
+        return db.query(query, values)
     },
 
-    delete(id, callback){
-        db.query(`DELETE FROM recipes WHERE id = $1`, [id], function(err, results){
-            if (err) throw `Database error ${err}`;
-            callback();
-        });
+    delete(id){
+        return db.query(`DELETE FROM recipes WHERE id = $1`, [id])
     },
 
     paginate(params){
@@ -104,9 +85,10 @@ module.exports = {
         ${filterQuery}
         LIMIT $1 OFFSET $2`;
 
-        db.query(query, [limit, offset], function(err, results) {
-            if (err) throw `Database Error ${err}`;
-            callback(results.rows);
-        })
+        return db.query(query, [limit, offset])
+    },
+
+    files(id) {
+        return db.query('SELECT * FROM files WHERE recipe_id = $1', [id])
     }
 }
