@@ -403,6 +403,23 @@ select {
 }
 /* =========== */
 
+#prep_step_title, #prep_step_time_title {
+    display: inline-block;
+}
+
+#prep_step_title {
+    margin-right: 555px;
+}
+
+#prep_step {
+    width: 665px;
+    margin-right: 10px;
+}
+
+#prep_step_time {
+    width: 260px;
+}
+
 /* == PHOTOS UPLOAD == */
 #photos-container {
     display: flex;

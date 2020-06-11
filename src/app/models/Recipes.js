@@ -11,8 +11,9 @@ module.exports = {
                 author,	
                 ingredients,
                 preparation,
+                preparation_time,
                 created_at
-            ) VALUES ($1, $2, $3, $4, $5)
+            ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id
         `
 
@@ -20,7 +21,8 @@ module.exports = {
             data.title,
             data.author,
             data.ingredients,
-            data.preparation,         
+            data.preparation,
+            data.preparation_time,     
             date(Date.now()).iso,
         ]
         
@@ -39,8 +41,9 @@ module.exports = {
             title=($1),
             author=($2),	
             ingredients=($3),
-            preparation=($4)
-        WHERE id = ($5)
+            preparation=($4),
+            preparation_time=($5)
+        WHERE id = ($6)
         `
 
         const values = [
@@ -48,6 +51,7 @@ module.exports = {
             data.author,
             data.ingredients,
             data.preparation,
+            data.preparation_time,
             data.index
         ]
 

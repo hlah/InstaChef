@@ -4,6 +4,7 @@ CREATE TABLE "recipes" (
   "author" text NOT NULL,
   "ingredients" text[] NOT NULL,
   "preparation" text[] NOT NULL,
+  "preparation_time" int[] NOT NULL,
   "created_at" timestamp DEFAULT (now())
 );
 

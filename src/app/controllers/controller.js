@@ -61,7 +61,7 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
         }))
 
-        return res.render('recipe_details', {recipe, files})
+        return res.render('recipe_details', {recipe, files, num_steps: recipe.preparation.length})
 
     },
 
@@ -78,7 +78,7 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
         }))
 
-        return res.render('edit', {recipe, files});
+        return res.render('edit', {recipe, files, num_steps: recipe.preparation.length});
     },
 
     create(req, res){
@@ -89,7 +89,7 @@ module.exports = {
         const keys = Object.keys(req.body)
 
         for (key of keys){
-            if ((req.body[key] == "") && (key != "add_info")){
+            if ((req.body[key] == "")){
                 return res.send("Please, fill all fields");
             }
         }

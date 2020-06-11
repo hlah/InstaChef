@@ -47,15 +47,18 @@
     <button type="button" class="add-ingredient"> Adicionar novo ingrediente </button>
 
     <div id="new_steps">
-        <p class="form_title"> Modo de preparo </p>
-        {% for step in recipe.preparation %}
+        <p id="prep_step_title" class="form_title"> Passo da Receita </p>
+        <p id="prep_step_time_title" class="form_title"> Duração </p>
+        {% for i in range(0, num_steps) -%}
             <div class="new_step">
-                <input type="text" name="preparation[]" value="{{step}}"/>
+                <input type="text" id="prep_step" name="preparation[]" value="{{recipe.preparation[i]}}"/>
+                <input type="number" id="prep_step_time" name="preparation_time[]" value="{{recipe.preparation_time[i]}}">
             </div>
-        {% endfor %} 
+        {%- endfor %}
         {% if not recipe %}
             <div class="new_step">
-                <input type="text" name="preparation[]" value=""/>
+                <input type="text" id="prep_step" name="preparation[]" value=""/>
+                <input type="number" id="prep_step_time" name="preparation_time[]" value="">
             </div>
         {% endif %}                                   
     </div>
