@@ -61,7 +61,9 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
         }))
 
-        return res.render('recipe_details', {recipe, files, num_steps: recipe.preparation.length})
+        let num_ing = recipe.ingredients_name.length
+        let num_steps = recipe.preparation.length
+        return res.render('recipe_details', {recipe, files, num_ing, num_steps})
 
     },
 
@@ -78,7 +80,9 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
         }))
 
-        return res.render('edit', {recipe, files, num_steps: recipe.preparation.length});
+        let num_ing = recipe.ingredients_name.length
+        let num_steps = recipe.preparation.length
+        return res.render('edit', {recipe, files, num_ing, num_steps});
     },
 
     create(req, res){

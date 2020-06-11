@@ -2,7 +2,9 @@ CREATE TABLE "recipes" (
   "id" SERIAL PRIMARY KEY,
   "title" text NOT NULL,
   "author" text NOT NULL,
-  "ingredients" text[] NOT NULL,
+  "ingredients_name" text[] NOT NULL,
+  "ingredients_quantity" int[] NOT NULL,
+  "ingredients_measure" text[] NOT NULL,
   "preparation" text[] NOT NULL,
   "preparation_time" int[] NOT NULL,
   "created_at" timestamp DEFAULT (now())

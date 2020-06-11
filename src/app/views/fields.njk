@@ -32,15 +32,21 @@
     </div>    
 
     <div id="new_ingredients">
-        <p class="form_title"> Ingredientes </p> 
-        {% for ingredient in recipe.ingredients %}
-            <div class="new_ingredient">
-                <input type="text" name="ingredients[]" value="{{ingredient}}"/>
+        <p id="ingr_name_title" class="form_title"> Nome do ingrediente </p>
+        <p id="ingr_quant_title" class="form_title"> Quantidade do ingrediente </p> 
+        <p id="ingr_meas_title" class="form_title"> Unidade de medida </p>  
+        {% for i in range(0, num_ing) -%}
+            <div class="new_step">
+                <input type="text" id="ingr_name" name="ingredients_name[]" value="{{recipe.ingredients_name[i]}}"/>
+                <input type="number" id="ingr_quant" name="ingredients_quantity[]" value="{{recipe.ingredients_quantity[i]}}"/>
+                <input type="text" id="ingr_meas" name="ingredients_measure[]" value="{{recipe.ingredients_measure[i]}}"/>
             </div>
-        {% endfor %} 
+        {%- endfor %}        
         {% if not recipe %}
             <div class="new_ingredient">
-                <input type="text" name="ingredients[]" value=""/>
+                <input type="text" id="ingr_name" name="ingredients_name[]" value=""/>
+                <input type="number" id="ingr_quant" name="ingredients_quantity[]" value=""/>
+                <input type="text" id="ingr_meas" name="ingredients_measure[]" value=""/>
             </div>
         {% endif %}                    
     </div>
@@ -48,7 +54,7 @@
 
     <div id="new_steps">
         <p id="prep_step_title" class="form_title"> Passo da Receita </p>
-        <p id="prep_step_time_title" class="form_title"> Duração </p>
+        <p id="prep_step_time_title" class="form_title"> Duração (seg) </p>
         {% for i in range(0, num_steps) -%}
             <div class="new_step">
                 <input type="text" id="prep_step" name="preparation[]" value="{{recipe.preparation[i]}}"/>

@@ -42,22 +42,22 @@
             <p class="recipe_el_title"> Ingredientes </p>
             <p class="hide_show_button" id="hide_show_ingr">Esconder</p>
             <ul id="ingredient_list" class="recipe_list">
-            {% for ingredient in recipe.ingredients %}
-                {% if ingredient != "" %}
-                    <li> {{ingredient}} </li>
+            {% for i in range(0, num_ing) -%}
+                {% if recipe.ingredients_name[i] != "" %}
+                    <li> {{recipe.ingredients_name[i]}} &nbsp;&nbsp;&nbsp;&nbsp; ({{recipe.ingredients_quantity[i]}} {{recipe.ingredients_measure[i]}})</li>
                 {% endif %}
-            {% endfor %}
+            {%- endfor %} 
             </ul>
         </div>
         <div class="preparation">
             <p class="recipe_el_title"> Modo de preparo </p>
             <p class="hide_show_button" id="hide_show_prep">Esconder</p>
             <ol id="preparation_list" class="recipe_list">
-            {% for preparation in recipe.preparation %}
-                {% if preparation != "" %}
-                    <li>{{preparation}}</li>
+            {% for i in range(0, num_steps) -%}
+                {% if recipe.preparation[i] != " " %}
+                    <li>{{recipe.preparation[i]}} &nbsp;&nbsp;&nbsp;&nbsp; (Duração: {{recipe.preparation_time[i]}} seg)</li>
                 {% endif %}
-            {% endfor %}
+            {%- endfor %} 
             </ol>
         </div>        
         

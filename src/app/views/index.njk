@@ -17,7 +17,7 @@
         {% endif %}
         <section class="cards">
             {% for recipe in recipes %}
-            <div class="card">
+            <div class="card" id="{{recipe.id}}">
                 <div class="card_image">
                     <img src={{recipe.image}}>
                 </div>
@@ -35,6 +35,8 @@
             data-total = {{pagination.total}}
             data-filter = {{filter}}>
         </div>      
-    </div>         
+    </div>      
+
+    <script src="/scripts/script_recipes.js"></script>    
 
 {% endblock %}

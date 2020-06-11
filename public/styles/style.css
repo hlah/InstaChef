@@ -143,6 +143,10 @@ header a {
     column-gap: 20px;
 }
 
+.card {
+    cursor: pointer;
+}
+
 .card_image img {
     border-radius: 15px;
     height: 140px;
@@ -402,6 +406,33 @@ select {
     margin-bottom: 16px;
 }
 /* =========== */
+
+#ingr_name_title, #ingr_quant_title, #ingr_meas_title {
+    display: inline-block;
+}
+
+#ingr_quant_title {
+    margin-left: 295px;
+    margin-right: 60px;
+}
+
+#ingr_name, #ingr_quant, #ingr_meas {
+    display: inline-block
+}
+
+#ingr_name {
+    width: 432px;
+    margin-right: 10px;
+}
+
+#ingr_quant {
+    width: 240px;
+    margin-right: 10px;
+}
+
+#ingr_meas {
+    width: 240px;
+}
 
 #prep_step_title, #prep_step_time_title {
     display: inline-block;

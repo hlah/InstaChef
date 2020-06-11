@@ -9,18 +9,22 @@ module.exports = {
             INSERT INTO recipes(
                 title,
                 author,	
-                ingredients,
+                ingredients_name,
+                ingredients_quantity,
+                ingredients_measure,
                 preparation,
                 preparation_time,
                 created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6)
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING id
         `
 
         const values = [
             data.title,
             data.author,
-            data.ingredients,
+            data.ingredients_name,
+            data.ingredients_quantity,
+            data.ingredients_measure,
             data.preparation,
             data.preparation_time,     
             date(Date.now()).iso,
@@ -40,16 +44,20 @@ module.exports = {
         UPDATE recipes SET 
             title=($1),
             author=($2),	
-            ingredients=($3),
-            preparation=($4),
-            preparation_time=($5)
-        WHERE id = ($6)
+            ingredients_name=($3),
+            ingredients_quantity=($4),
+            ingredients_measure=($5),
+            preparation=($6),
+            preparation_time=($7) 
+        WHERE id = ($8)
         `
 
         const values = [
             data.title,
             data.author,
-            data.ingredients,
+            data.ingredients_name,
+            data.ingredients_quantity,
+            data.ingredients_measure,
             data.preparation,
             data.preparation_time,
             data.index
