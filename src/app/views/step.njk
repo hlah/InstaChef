@@ -1,0 +1,11 @@
+{% extends "layout.njk" %}
+
+{% block content %}    
+    <div class="edit">
+        <div class="header">
+            <p class="title"> Passo {{step.num+1}} - {{recipe.title}}</p>
+        </div>
+        <p>{{step.description}}</p>
+        <a href="/recipes/{{recipe.id}}/steps/{{step.num+1}}" id="edit_btn">Próximo passo</a>
+    </div>           
+{% endblock %}

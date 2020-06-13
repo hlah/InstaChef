@@ -12,6 +12,8 @@ routes.get("/recipes/:index", controller.show);
 routes.get("/recipes/:index/edit", controller.edit); 
 routes.get("/recipes/:index/execute", controller.execute); 
 routes.get("/recipes/:index/checklist", controller.checklist); 
+routes.get("/recipes/:index/steps/", controller.steps); 
+routes.get("/recipes/:index/steps/:step", controller.steps); 
 routes.post("/recipes", multer.array('photos', 5), controller.post); 
 routes.put("/recipes", multer.array('photos', 5), controller.put); 
 routes.delete("/recipes", controller.delete);  

@@ -107,6 +107,25 @@ module.exports = {
         return res.render('checklist', {recipe, ingredients});
     },
 
+    async steps(req, res) {
+        let results = await Recipes.find(req.params.index)
+        const recipe = results.rows[0]
+        if (!recipe) return res.send('Product not found')
+
+        let step_num = req.params.step;
+        if (!step_num) step_num = 0;
+        else step_num = parseInt(step_num);
+        if (step_num >= recipe.preparation.length) return res.render('finished', {recipe});
+
+        let step = {
+          num: step_num,
+          description: recipe.preparation[step_num],
+          time: recipe.preparation_time[step_num]
+        }
+
+        return res.render('step', {recipe, step});
+    },
+
     create(req, res){
         return res.render('create.njk');
     },
