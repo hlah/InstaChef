@@ -85,6 +85,28 @@ module.exports = {
         return res.render('edit', {recipe, files, num_ing, num_steps});
     },
 
+    execute(req, res) {
+        return res.redirect('/recipes/' + req.params.index + "/checklist");
+    },
+
+    async checklist(req, res) {
+        let results = await Recipes.find(req.params.index)
+        const recipe = results.rows[0]
+
+        if (!recipe) return res.send('Product not found')
+
+        let ingredients = [];
+        for (let [index, name] of recipe.ingredients_name.entries()) {
+            ingredients.push({ 
+                name, 
+                quantity: recipe.ingredients_quantity[index],
+                measure: recipe.ingredients_measure[index]
+            });
+        }
+
+        return res.render('checklist', {recipe, ingredients});
+    },
+
     create(req, res){
         return res.render('create.njk');
     },

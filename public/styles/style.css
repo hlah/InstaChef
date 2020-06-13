@@ -3,6 +3,7 @@
 :root {
     --primary-color: rgb(239, 108, 16);
     --secondary-color: rgb(77, 182, 173);
+    --secondary-color-bright: rgb(41, 206, 192);
 }
 
 * {
@@ -60,6 +61,41 @@ header a {
     cursor: pointer;
     text-decoration: none;
 }
+
+/* == Checkbox == */
+input[type="checkbox"] {
+    visibility:hidden;
+}
+
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  border: 1px solid var(--secondary-color);
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  vertical-align: top;
+  width: 16px;
+  position: relative;
+  top: -8px;
+}
+input[type="checkbox"]:checked + label:before {
+  background: var(--primary-color);
+  color: #FFF;
+  content: "\2713";
+  text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+
+input[type="checkbox"]:focus + label::before {
+    outline: var(--secondary-color) auto 5px;
+}
+
+
 /* ============ */
 
 /* == INDEX GENERAL == */
@@ -306,12 +342,12 @@ ol li  {
     display: inline;
 }
 
-.edit_header, .create_header {
+.edit_header, .create_header, .header {
     margin-top: 55px;
     margin-bottom: 30px;
 }
 
-.edit_title, .create_title {
+.edit_title, .create_title, .title {
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
@@ -346,8 +382,7 @@ button[type="submit"] {
     margin-bottom: 10px;
 }
 
-input {
-    width: 940px;
+input[type="text"], input[type="number"] {
     outline: none;
     font-size: 16px;
     line-height: 19px;
@@ -601,3 +636,27 @@ form #photos-preview img {
     justify-content: center;
     transition: 400ms;
 }
+
+/* == CHECKLIST == */
+li.checklist-ingredient {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 2rem repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding: 0.5rem;
+}
+
+li.checklist-ingredient:hover {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+.checklist-ingredient > span:nth-child(3) {
+  justify-self: end;
+}
+
+.checklist-ingredient > span{
+  align-self: center;
+}
+
+
+

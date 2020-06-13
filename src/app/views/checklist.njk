@@ -1,0 +1,24 @@
+{% extends "layout.njk" %}
+
+{% block content %}    
+    <div class="edit">
+        <div class="header">
+            <p class="title"> Checklist - {{recipe.title}}</p>
+        </div>
+        <p>Certifique-se que tem todos os igredientes necessários para continuar.</p>
+        <ul>
+           {% for ingredient in ingredients %} 
+              <li class='checklist-ingredient'>
+                  <span>
+                        <input type="checkbox" id="ingredient-{{ingredient.name}}">
+                        <label for="ingredient-{{ingredient.name}}"></label>
+                  </span>
+                  <span>{{ingredient.name}}</span>
+                  <span>{{ingredient.quantity}}</span>
+                  <span>{{ingredient.measure}}</span>
+              </li>
+           {% endfor %}
+        </ul>
+        <a href="/recipes/{{recipe.id}}/steps" id="edit_btn">Fazer receita</a>
+    </div>           
+{% endblock %}
