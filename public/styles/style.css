@@ -3,7 +3,6 @@
 :root {
     --primary-color: rgb(239, 108, 16);
     --secondary-color: rgb(77, 182, 173);
-    --secondary-color-bright: rgb(41, 206, 192);
 }
 
 * {
@@ -60,6 +59,40 @@ header a {
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
+}
+
+/* == Buttons == */
+
+.orange_btn .green_btn {
+    color: white;
+    border-radius: 4px;
+    padding: 9px 20px;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.orange_btn {
+    color: white;
+    border-radius: 4px;
+    padding: 9px 20px;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    font-weight: 400;
+    background-color: var(--primary-color);
+}
+
+.green_btn {
+    color: white;
+    border-radius: 4px;
+    padding: 9px 20px;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    font-weight: 400;
+    background-color: var(--secondary-color);
 }
 
 /* == Checkbox == */
@@ -656,6 +689,38 @@ li.checklist-ingredient:hover {
 
 .checklist-ingredient > span{
   align-self: center;
+}
+
+/* == TIMER == */
+#timer {
+ width: 50%;
+ display: grid;
+ margin-right: auto;
+ margin-left: auto;
+ grid-template-columns: 1fr 1fr;
+ grid-template-areas: "timer timer" "reset toggle";
+ grid-gap: 1rem;
+}
+
+#timer-display {
+ text-align: center;
+ grid-area: timer;
+ font-size: 3rem;
+}
+
+#timer-toggler, #timer-reset {
+  width: 4rem;
+  text-align: center;
+}
+
+#timer-toggler {
+ grid-area: toggle;
+ justify-self: left;
+}
+
+#timer-reset {
+ grid-area: reset;
+ justify-self: right;
 }
 
 

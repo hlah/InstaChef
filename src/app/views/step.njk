@@ -6,6 +6,9 @@
             <p class="title"> Passo {{step.num+1}} - {{recipe.title}}</p>
         </div>
         <p>{{step.description}}</p>
+        {% if step.time > 0 %}
+          {% include 'timer.njk' %}                          
+        {% endif %}
         <a href="/recipes/{{recipe.id}}/steps/{{step.num+1}}" id="edit_btn">Próximo passo</a>
     </div>           
 {% endblock %}
