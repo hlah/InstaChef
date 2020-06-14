@@ -723,5 +723,13 @@ li.checklist-ingredient:hover {
  justify-self: right;
 }
 
+.timer-ended {
+  color: red;
+}
+
+.toggler-hidden {
+  visibility: hidden;
+}
+
 
 

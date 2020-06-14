@@ -2,12 +2,27 @@ var total_time = document.currentScript.getAttribute("totalTime");
 let seconds_left = total_time;
 let callback = null;
 
+const alarmAudio = new Audio("/sounds/timer-alarm.mp3");
+
 printTime(seconds_left);
 
+function stopTimer() {
+  document.getElementById("timer-display").classList.remove('timer-ended');
+  alarmAudio.pause();
+  document.getElementById("timer-toggler").innerHTML = "Iniciar";
+  clearInterval(callback);
+  callback = null;
+}
+
 function callbackFun() {
-  if( seconds_left > 0 ) {
-    seconds_left -= 1;
-    printTime(seconds_left);
+  seconds_left -= 1;
+  printTime(seconds_left);
+  if( seconds_left == 0 ){
+    document.getElementById("timer-display").classList.add('timer-ended');
+    document.getElementById("timer-toggler").classList.add('toggler-hidden');
+    alarmAudio.play();
+    alarmAudio.fastSeek(0);
+    clearInterval(callback);
   }
 }
 
@@ -28,17 +43,15 @@ function toggleTimer() {
     document.getElementById("timer-toggler").innerHTML = "Pausar";
     callback = setInterval(callbackFun, 1000);
   } else {
-    document.getElementById("timer-toggler").innerHTML = "Iniciar";
-    clearInterval(callback);
-    callback = null;
+    stopTimer();
   }
 }
 
 function resetTimer() {
+  document.getElementById("timer-toggler").classList.remove('toggler-hidden');
   seconds_left = total_time;
   printTime(seconds_left);
-  clearInterval(callback);
-  callback = setInterval(callbackFun, 1000);
+  stopTimer();
 }
 
 
