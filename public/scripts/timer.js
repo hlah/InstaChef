@@ -2,7 +2,7 @@ var total_time = document.currentScript.getAttribute("totalTime");
 let seconds_left = total_time;
 let callback = null;
 
-let alarmAudio = new Audio("/sounds/timer-alarm.mp3");
+let alarmAudio = new Audio("/sounds/kitchenBell.mp3");
 
 printTime(seconds_left);
 
