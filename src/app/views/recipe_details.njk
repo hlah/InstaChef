@@ -44,7 +44,7 @@
             <ul id="ingredient_list" class="recipe_list">
             {% for i in range(0, num_ing) -%}
                 {% if recipe.ingredients_name[i] != "" %}
-                    <li> {{recipe.ingredients_name[i]}} &nbsp;&nbsp;&nbsp;&nbsp; ({{recipe.ingredients_quantity[i]}} {{recipe.ingredients_measure[i]}})</li>
+                    <li> {{recipe.ingredients_name[i]}} ({{recipe.ingredients_quantity[i]}} {{recipe.ingredients_measure[i]}})</li>
                 {% endif %}
             {%- endfor %} 
             </ul>
@@ -55,7 +55,7 @@
             <ol id="preparation_list" class="recipe_list">
             {% for i in range(0, num_steps) -%}
                 {% if recipe.preparation[i] != " " %}
-                    <li>{{recipe.preparation[i]}} &nbsp;&nbsp;&nbsp;&nbsp; (Duração: {{recipe.preparation_time[i]}} seg)</li>
+                    <li>{{recipe.preparation[i]}} (Duração: {{recipe.preparation_time[i]}} seg)</li>
                 {% endif %}
             {%- endfor %} 
             </ol>
