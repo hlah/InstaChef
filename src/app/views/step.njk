@@ -5,7 +5,7 @@
         <div class="header">
             <p class="title"> Passo {{step.num+1}} - {{recipe.title}}</p>
         </div>
-        <p>{{step.description}}</p>
+        <p style="font-size: 24px; margin-bottom: 16px">{{step.description}}</p>
         {% if step.time > 0 %}
           {% include 'timer.njk' %}                          
         {% endif %}
