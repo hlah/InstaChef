@@ -757,7 +757,7 @@ li.checklist-ingredient:hover {
 }
 
 .current-step {
-  background-color: var(--grey-color);
+  background-color: var(--primary-color);
 }
 
 .done-spacer, .not-done-spacer {
