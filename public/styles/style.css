@@ -3,6 +3,7 @@
 :root {
     --primary-color: rgb(239, 108, 16);
     --secondary-color: rgb(77, 182, 173);
+    --grey-color: rgb(198, 198, 198)
 }
 
 * {
@@ -731,5 +732,45 @@ li.checklist-ingredient:hover {
   visibility: hidden;
 }
 
+/* == PROGRESS == */
+#steps-progress {
+  display: flex;
+  margin-top: 1rem;
+}
 
+.not-done-step, .current-step, .done-step {
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.not-done-step {
+  background-color: var(--grey-color);
+}
+
+.done-step {
+  background-color: var(--primary-color);
+}
+
+.current-step {
+  background-color: var(--grey-color);
+}
+
+.done-spacer, .not-done-spacer {
+  flex-grow: 1;
+  margin: auto;
+  height: 0.1rem;
+}
+
+.done-spacer {
+  background-color: var(--primary-color);
+}
+
+.not-done-spacer {
+  background-color: var(--grey-color);
+}
 

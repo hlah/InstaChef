@@ -115,15 +115,14 @@ module.exports = {
         let step_num = req.params.step;
         if (!step_num) step_num = 0;
         else step_num = parseInt(step_num);
-        if (step_num >= recipe.preparation.length) return res.render('finished', {recipe});
+        if (step_num >= recipe.preparation.length) return res.render('finished', {recipe, step_num});
 
         let step = {
-          num: step_num,
           description: recipe.preparation[step_num],
           time: recipe.preparation_time[step_num]
         }
 
-        return res.render('step', {recipe, step});
+        return res.render('step', {recipe, step, step_num});
     },
 
     create(req, res){
