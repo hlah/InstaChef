@@ -430,6 +430,14 @@ input[type="text"], input[type="number"] {
     box-sizing: border-box;
 }
 
+#new_ingredients, #new_steps {
+    margin-top: 30px;
+    border: 2px solid var(--primary-color);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
 select {
     width: 940px;
     height: 49px;
@@ -443,8 +451,10 @@ select {
 }
 
 .add-ingredient, .add-preparation {
-    color: var(--primary-color);
-    background-color: white;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 8px;
+    border-radius: 8px;
     font-size: 16px;
     line-height: 19px;
     font-weight: bold;
@@ -495,12 +505,12 @@ select {
 }
 
 #ingr_quant {
-    width: 240px;
+    width: 218px;
     margin-right: 10px;
 }
 
 #ingr_meas {
-    width: 240px;
+    width: 218px;
 }
 
 #prep_step_title, #prep_step_time_title {
@@ -517,7 +527,7 @@ select {
 }
 
 #prep_step_time {
-    width: 260px;
+    width: 224px;
 }
 
 /* == PHOTOS UPLOAD == */

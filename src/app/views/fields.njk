@@ -32,41 +32,46 @@
     </div>    
 
     <div id="new_ingredients">
-        <p id="ingr_name_title" class="form_title"> Nome do ingrediente </p>
-        <p id="ingr_quant_title" class="form_title"> Quantidade do ingrediente </p> 
-        <p id="ingr_meas_title" class="form_title"> Unidade de medida </p>  
-        {% for i in range(0, num_ing) -%}
-            <div class="new_step">
-                <input type="text" id="ingr_name" name="ingredients_name[]" value="{{recipe.ingredients_name[i]}}"/>
-                <input type="number" id="ingr_quant" name="ingredients_quantity[]" value="{{recipe.ingredients_quantity[i]}}"/>
-                <input type="text" id="ingr_meas" name="ingredients_measure[]" value="{{recipe.ingredients_measure[i]}}"/>
-            </div>
-        {%- endfor %}        
-        {% if not recipe %}
-            <div class="new_ingredient">
-                <input type="text" id="ingr_name" name="ingredients_name[]" value=""/>
-                <input type="number" id="ingr_quant" name="ingredients_quantity[]" value=""/>
-                <input type="text" id="ingr_meas" name="ingredients_measure[]" value=""/>
-            </div>
-        {% endif %}                    
+        <div>
+            <p id="ingr_name_title" class="form_title"> Nome do ingrediente </p>
+            <p id="ingr_quant_title" class="form_title"> Quantidade do ingrediente </p> 
+            <p id="ingr_meas_title" class="form_title"> Unidade de medida </p>  
+            {% for i in range(0, num_ing) -%}
+                <div class="new_step">
+                    <input type="text" id="ingr_name" name="ingredients_name[]" value="{{recipe.ingredients_name[i]}}"/>
+                    <input type="number" id="ingr_quant" name="ingredients_quantity[]" value="{{recipe.ingredients_quantity[i]}}"/>
+                    <input type="text" id="ingr_meas" name="ingredients_measure[]" value="{{recipe.ingredients_measure[i]}}"/>
+                </div>
+            {%- endfor %}        
+            {% if not recipe %}
+                <div class="new_ingredient">
+                    <input type="text" id="ingr_name" name="ingredients_name[]" value=""/>
+                    <input type="number" id="ingr_quant" name="ingredients_quantity[]" value=""/>
+                    <input type="text" id="ingr_meas" name="ingredients_measure[]" value=""/>
+                </div>
+            {% endif %}                    
+        </div>
     </div>
     <button type="button" class="add-ingredient"> Adicionar novo ingrediente </button>
 
+
     <div id="new_steps">
-        <p id="prep_step_title" class="form_title"> Passo da Receita </p>
-        <p id="prep_step_time_title" class="form_title"> Duração (seg) </p>
-        {% for i in range(0, num_steps) -%}
-            <div class="new_step">
-                <input type="text" id="prep_step" name="preparation[]" value="{{recipe.preparation[i]}}"/>
-                <input type="number" id="prep_step_time" name="preparation_time[]" value="{{recipe.preparation_time[i]}}">
-            </div>
-        {%- endfor %}
-        {% if not recipe %}
-            <div class="new_step">
-                <input type="text" id="prep_step" name="preparation[]" value=""/>
-                <input type="number" id="prep_step_time" name="preparation_time[]" value="">
-            </div>
-        {% endif %}                                   
+        <div>
+            <p id="prep_step_title" class="form_title"> Passo da Receita </p>
+            <p id="prep_step_time_title" class="form_title"> Duração (seg) </p>
+            {% for i in range(0, num_steps) -%}
+                <div class="new_step">
+                    <input type="text" id="prep_step" name="preparation[]" value="{{recipe.preparation[i]}}"/>
+                    <input type="number" id="prep_step_time" name="preparation_time[]" value="{{recipe.preparation_time[i]}}">
+                </div>
+            {%- endfor %}
+            {% if not recipe %}
+                <div class="new_step">
+                    <input type="text" id="prep_step" name="preparation[]" value=""/>
+                    <input type="number" id="prep_step_time" name="preparation_time[]" value="">
+                </div>
+            {% endif %}                                   
+        </div>
     </div>
     <button type="button" class="add-preparation"> Adicionar novo passo </button>        
 
