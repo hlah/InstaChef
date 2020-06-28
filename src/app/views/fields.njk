@@ -58,17 +58,25 @@
     <div id="new_steps">
         <div>
             <p id="prep_step_title" class="form_title"> Passo da Receita </p>
-            <p id="prep_step_time_title" class="form_title"> Duração (seg) </p>
+            <p id="prep_step_time_title" class="form_title"> Timer </p>
             {% for i in range(0, num_steps) -%}
                 <div class="new_step">
                     <input type="text" id="prep_step" name="preparation[]" value="{{recipe.preparation[i]}}"/>
-                    <input type="number" id="prep_step_time" name="preparation_time[]" value="{{recipe.preparation_time[i]}}">
+                    <input type="number" class="prep_step_time" name="preparation_time_h[]" value="{{preparation_time_h[i]}}" min="0" oninput="formatTime(this)" maxlength="2">
+                    <span>:</span>
+                    <input type="number" class="prep_step_time" name="preparation_time_m[]" value="{{preparation_time_m[i]}}" min="0" max="59" oninput="formatTime(this)" >
+                    <span>:</span>
+                    <input type="number" class="prep_step_time" name="preparation_time_s[]" value="{{preparation_time_s[i]}}" min="0" max="59" oninput="formatTime(this)" >
                 </div>
             {%- endfor %}
             {% if not recipe %}
                 <div class="new_step">
                     <input type="text" id="prep_step" name="preparation[]" value=""/>
-                    <input type="number" id="prep_step_time" name="preparation_time[]" value="">
+                    <input type="number" class="prep_step_time" name="preparation_time_h[]" value="0" min="0" oninput="formatTime(this)" maxlength="2">
+                    <span>:</span>
+                    <input type="number" class="prep_step_time" name="preparation_time_m[]" value="0" min="0" max="59" oninput="formatTime(this)" >
+                    <span>:</span>
+                    <input type="number" class="prep_step_time" name="preparation_time_s[]" value="0" min="0" max="59" oninput="formatTime(this)" >
                 </div>
             {% endif %}                                   
         </div>

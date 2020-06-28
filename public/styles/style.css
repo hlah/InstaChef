@@ -110,10 +110,10 @@ input[type="checkbox"] + label:before {
   display: inline-block;
   font: 16px/1em sans-serif;
   height: 16px;
-  vertical-align: top;
+  /*vertical-align: top;*/
   width: 16px;
   position: relative;
-  top: -8px;
+  /*top: -8px;*/
 }
 input[type="checkbox"]:checked + label:before {
   background: var(--primary-color);
@@ -518,16 +518,20 @@ select {
 }
 
 #prep_step_title {
-    margin-right: 555px;
+    margin-right: 515px;
 }
 
 #prep_step {
-    width: 665px;
+    width: 620px;
     margin-right: 10px;
 }
 
-#prep_step_time {
-    width: 224px;
+.prep_step_time {
+    width: 60px;
+}
+
+.prep_step_timer_checkbox {
+    margin-right: 20px;
 }
 
 /* == PHOTOS UPLOAD == */
@@ -700,6 +704,11 @@ li.checklist-ingredient:hover {
 
 .checklist-ingredient > span{
   align-self: center;
+}
+
+.checklist-ingredient > span > label:before {
+  vertical-align: top;
+  top: -8px;
 }
 
 /* == TIMER == */

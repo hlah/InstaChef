@@ -27,11 +27,18 @@ function addStep() {
 
   // Deixa o valor do input vazio
   newField.children[0].value = "";
-  newField.children[1].value = "";
+  newField.children[1].value = "0";
+  newField.children[3].value = "0";
+  newField.children[5].value = "0";
   preparation.appendChild(newField);
 }
 
-  
+function formatTime(field) {
+  if(field.value.length > 2) {
+    field.value = field.value.slice(0, 2);
+  }
+}
+
 document
   .querySelector(".add-ingredient")
   .addEventListener("click", addIngredient);

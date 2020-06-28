@@ -69,7 +69,7 @@ module.exports = {
 
     async edit(req, res){
         let results = await Recipes.find(req.params.index)
-        const recipe = results.rows[0]
+        let recipe = results.rows[0]
 
         if (!recipe) return res.send('Product not found')
 
@@ -80,9 +80,21 @@ module.exports = {
             src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
         }))
 
+        let preparation_time_s = [];
+        let preparation_time_m = [];
+        let preparation_time_h = [];
+        for( var i = 0; i < recipe.preparation_time.length; i++ ) {
+          const h = recipe.preparation_time[i]/3600>>0;
+          const m = (recipe.preparation_time[i]-h*3600)/60>>0;
+          const s = (recipe.preparation_time[i]-h*3600-m*60);
+          preparation_time_h.push(h);
+          preparation_time_m.push(m);
+          preparation_time_s.push(s);
+        }
+
         let num_ing = recipe.ingredients_name.length
         let num_steps = recipe.preparation.length
-        return res.render('edit', {recipe, files, num_ing, num_steps});
+        return res.render('edit', {recipe, files, num_ing, num_steps, preparation_time_h, preparation_time_m, preparation_time_s});
     },
 
     execute(req, res) {

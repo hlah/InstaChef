@@ -18,6 +18,10 @@ module.exports = {
             ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING id
         `
+        var preparation_time = [];
+        for( var i = 0; i < data.preparation_time_h.length; i++ ) {
+          preparation_time.push(parseInt(data.preparation_time_h[i]) * 3600 + parseInt(data.preparation_time_m[i]) * 60 + parseInt(data.preparation_time_s[i]));
+        }
 
         const values = [
             data.title,
@@ -26,7 +30,7 @@ module.exports = {
             data.ingredients_quantity,
             data.ingredients_measure,
             data.preparation,
-            data.preparation_time,     
+            preparation_time,
             date(Date.now()).iso,
         ]
         
